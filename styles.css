@@ -3,3 +3,43 @@ body {
     background-size: cover;
     background-image:url(Robot.jpeg)
 }
+
+message {
+    background-color: white; color:red
+}
+
+message {
+    font-size: 30px;
+}
+
+message2 {
+    background-color: white; color:red
+}
+
+message2 {
+    font-size: 30px;
+}
+
+message3 {
+    background-color: white; color:red
+}
+
+message3 {
+    font-size: 30px;
+}
+
+message4 {
+    background-color: white; color:red
+}
+
+message4 {
+    font-size: 30px;
+}
+
+message5 {
+    background-color: white; color:red
+}
+
+message5 {
+    font-size: 30px;
+}
