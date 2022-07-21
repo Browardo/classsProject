@@ -1,3 +1,17 @@
+let gameTitle = "TITLE"
+console.log(gameTitle)
+document.querySelector(".Title").textContent = gameTitle
+
+let gameTitle1 = "OF"
+console.log(gameTitle1)
+document.querySelector(".Title1").textContent = gameTitle1
+
+let gameTitle2 = "GAME"
+console.log(gameTitle2)
+document.querySelector(".Title2").textContent = gameTitle2
+
+let chatButton= document.querySelector(".chat")
+let introField6=document.querySelector(".intro-field6")
 // 1 & 2
 let button = document.querySelector(".P1")
 let button2 = document.querySelector(".P2")
@@ -51,4 +65,8 @@ button5.onclick = function (){
     message5 = "Player 5: " + introField5.value
     console.log(message5)
     document.querySelector(".message5").textContent = message5
+    }
+    let startButton=document.querySelector(".Start")
+    startButton.onclick=function () {
+        
     }
