@@ -59,13 +59,13 @@ input {
     font-size: 40
 }
 .Start {
-    position: absolute;
+    position: fixed;
     left: 1050px;
     top: 50px
 }
 .Title {
     position: absolute;
-    left:50%;
+    left:40%;
     top: 100px;
     font-size: 50px;
 }
@@ -74,7 +74,7 @@ input {
 }
 .Title1 {
     position: absolute;
-    left:50%;
+    left:40%;
     top: 200px;
     font-size: 50px;
 }
@@ -83,7 +83,7 @@ input {
 }
 .Title2 {
     position: absolute;
-    left:50%;
+    left:40%;
     top: 300px;
     font-size: 50px;
 }
@@ -91,12 +91,28 @@ input {
     color:rgb(22, 28, 186)
 }
 .chat {
-    position: absolute;
+    position: fixed;
     left: 400px;
-    top: 680;
+    top: 675;
 }
+.chat {
+    background-color: blue; 
+    border-color: rgb(197, 61, 158);
+} 
 .intro-field6 {
-    position: absolute;
+    position: fixed;
     left: 128px;
-    top: 680px;
+    top: 675px;
+    
+}
+.chatMessage {
+    position: absolute;
+    left: 730px;
+    top: 600px;
+    margin-right: 10px;
+}
+.chatMessage {
+    background-color: white;
+    color: black;
+    font-size: 25px;
 }
