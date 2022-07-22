@@ -1,3 +1,4 @@
+
 let gameTitle = "TITLE"
 console.log(gameTitle)
 document.querySelector(".Title").textContent = gameTitle
@@ -9,6 +10,8 @@ document.querySelector(".Title1").textContent = gameTitle1
 let gameTitle2 = "GAME"
 console.log(gameTitle2)
 document.querySelector(".Title2").textContent = gameTitle2
+
+let Gtitle= [gameTitle, gameTitle1, gameTitle2]
 
 let chatButton= document.querySelector(".chat")
 let introField6=document.querySelector(".intro-field6")
@@ -41,6 +44,9 @@ let message4 = "  "
 let button5 = document.querySelector(".P5")
 let introField5 = document.querySelector(".intro-field5")
 let message5 = "  "
+
+let buttons = [button, button2, button3, button4, button5]
+let introFields = [introField, introField2, introField3, introField4, introField5]
 // 1
 button.onclick = function(){
     let intro = introField.value
@@ -77,12 +83,28 @@ button5.onclick = function (){
     console.log(message5)
     document.querySelector(".message5").textContent = message5
 }
-
 let startButton=document.querySelector(".Start")
-startButton.onclick=function () {
+startButton.onclick=function startGame() {
+    console.log ("start button pressed")
+    startButton.style['display']="none"
+    introFields.forEach(function (introField){
+            introField.style["display"]="none"
+        })
+    buttons.forEach(function (button){
+            button.style["display"]="none"
+            })
     
-}
+            gameTitle= " "
+            gameTitle2= " "
+            gameTitle3= " "
+            document.querySelector(".Title").textContent=gameTitle
+            document.querySelector(".Title1").textContent=gameTitle2
+            document.querySelector(".Title2").textContent=gameTitle3
 
+    }
+
+    
+    
 chatButton.onclick = sendMessage
 
 document.onkeydown = function(event) {
