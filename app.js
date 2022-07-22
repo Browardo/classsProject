@@ -74,7 +74,7 @@ button5.onclick = function (){
     }
     chatButton.onclick=function () {
         let intro6=introField6.value
-        chatMessage=  prevChatMessage +"P1:   "+introField6.value
+        chatMessage=  prevChatMessage +"P1:   "+introField6.value + "\n\n"
         console.log(chatMessage)
         prevChatMessage =  chatMessage
         document.querySelector(".chatMessage").textContent=chatMessage

@@ -103,16 +103,46 @@ input {
     position: fixed;
     left: 128px;
     top: 675px;
+    border-color: black;
     
 }
 .chatMessage {
     position: absolute;
     left: 730px;
-    top: 600px;
-    margin-right: 10px;
+    top: 400px;
 }
 .chatMessage {
     background-color: white;
     color: black;
     font-size: 25px;
+    white-space: pre-line;
+}
+chatMessage {
+margin-top: 200px;
+}
+.intro-field {
+    border-color: blue;
+    max-width:160px;
+    position: fixed;
+}
+.P1 {
+    position: fixed;
+    left: 250px;
+    top: 10px;
+}
+.intro-field2 {
+    border-color: blue;
+    max-width:160px;
+}
+.intro-field3 {
+    border-color: blue;
+    max-width:160px;
+}
+.intro-field4 {
+    border-color: blue;
+    max-width:160px;
+}
+.intro-field5 {
+    border-color: blue;
+    max-width:160px;
 }
