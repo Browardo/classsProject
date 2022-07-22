@@ -9,6 +9,7 @@ message {
 
 message {
     font-size: 30px;
+    position:fixed;
 }
 
 message2 {
@@ -17,6 +18,8 @@ message2 {
 
 message2 {
     font-size: 30px;
+
+position:fixed;
 }
 
 message3 {
@@ -25,6 +28,7 @@ message3 {
 
 message3 {
     font-size: 30px;
+    position:fixed;
 }
 
 message4 {
@@ -33,6 +37,7 @@ message4 {
 
 message4 {
     font-size: 30px;
+    position:fixed;
 }
 
 message5 {
@@ -41,6 +46,7 @@ message5 {
 
 message5 {
     font-size: 30px;
+    position:fixed;
 }
 
 button {
@@ -68,6 +74,7 @@ input {
     left:40%;
     top: 100px;
     font-size: 50px;
+    font-weight: 800;
 }
 .Title {
     color:rgb(22, 28, 186)
@@ -77,6 +84,7 @@ input {
     left:40%;
     top: 200px;
     font-size: 50px;
+    font-weight: 800;
 }
 .Title1 {
     color:rgb(22, 28, 186)
@@ -86,6 +94,7 @@ input {
     left:40%;
     top: 300px;
     font-size: 50px;
+    font-weight: 800;
 }
 .Title2 {
     color:rgb(22, 28, 186)
@@ -108,18 +117,18 @@ input {
 }
 .chatMessage {
     position: absolute;
-    left: 730px;
-    top: 400px;
+    left: 760px;
+    top: 250px;
 }
+
 .chatMessage {
     background-color: white;
     color: black;
     font-size: 25px;
     white-space: pre-line;
 }
-chatMessage {
-margin-top: 200px;
-}
+
+
 .intro-field {
     border-color: blue;
     max-width:160px;

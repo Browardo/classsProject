@@ -1,7 +1,6 @@
 let gameTitle = "TITLE"
 console.log(gameTitle)
 document.querySelector(".Title").textContent = gameTitle
-let prevChatMessage = " "
 
 let gameTitle1 = "OF"
 console.log(gameTitle1)
@@ -14,6 +13,16 @@ document.querySelector(".Title2").textContent = gameTitle2
 let chatButton= document.querySelector(".chat")
 let introField6=document.querySelector(".intro-field6")
 let chatMessage="  "
+
+let nextMessage=" "
+document.querySelector(".nextMessage")
+function sendMessage () {
+    chatMessage=  "\n\nP1:   "+introField6.value+chatMessage 
+    console.log(chatMessage)
+    document.querySelector(".chatMessage").textContent=chatMessage
+    introField6.value = " "
+}
+
 // 1 & 2
 let button = document.querySelector(".P1")
 let button2 = document.querySelector(".P2")
@@ -67,16 +76,20 @@ button5.onclick = function (){
     message5 = "Player 5: " + introField5.value
     console.log(message5)
     document.querySelector(".message5").textContent = message5
+}
+
+let startButton=document.querySelector(".Start")
+startButton.onclick=function () {
+    
+}
+
+chatButton.onclick = sendMessage
+
+document.onkeydown = function(event) {
+    console.log(" pressed")
+    if (event.key == "Enter") {
+        console.log("enter pressed")
+        sendMessage()
     }
-    let startButton=document.querySelector(".Start")
-    startButton.onclick=function () {
+}
         
-    }
-    chatButton.onclick=function () {
-        let intro6=introField6.value
-        chatMessage=  prevChatMessage +"P1:   "+introField6.value + "\n\n"
-        console.log(chatMessage)
-        prevChatMessage =  chatMessage
-        document.querySelector(".chatMessage").textContent=chatMessage
-        introField6.value = " "
-    }
