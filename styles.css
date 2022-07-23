@@ -155,3 +155,13 @@ input {
     border-color: blue;
     max-width:160px;
 }
+.intro-field7 {
+    position: fixed;
+    left: 427px;
+    bottom: 2px;
+}
+.button7 {
+    position: fixed;
+    left: 700px;
+    bottom: 2px;
+}
