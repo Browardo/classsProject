@@ -1,3 +1,4 @@
+let chatMessageFR=""
 let vary=1
 let button7=document.querySelector(".button7")
 button7.style["display"]="none"
@@ -23,10 +24,19 @@ let chatMessage="  "
 
 
 function sendMessage () {
-    chatMessage=  "\n\nP1:   "+introField6.value+chatMessage 
+    chatMessage= chatMessage +"P1:  " +"\n" + introField6.value  +  "\n\n"
     console.log(chatMessage)
     document.querySelector(".chatMessage").textContent=chatMessage
+    scroll(0,99999999999999999999999)
     introField6.value = " "
+}
+
+function sendMessageFR () {
+    chatMessageFR= chatMessageFR +"P1:  " +"\n" + introField7.value  +  "\n\n"
+    console.log(chatMessageFR)
+    document.querySelector(".chatMessageFR").textContent=chatMessageFR
+    scroll(0,99999999999999999999999)
+    introField7.value = " "
 }
 
 // 1 & 2
@@ -94,7 +104,7 @@ startButton.onclick=function startGame() {
             introField.style["display"]="none"
         })
     buttons.forEach(function (button){
-        //make atuff disapear    
+        //make stuff disapear    
         button.style["display"]="none"
             })
         vary=2
@@ -112,6 +122,8 @@ startButton.onclick=function startGame() {
             //make stuff appear
             introField7.style["display"]="block"
             button7.style["display"]="block"
+            button7= document.querySelector(".button7")
+            introField7=document.querySelector(".intro-field7")
     }
 
     
@@ -119,10 +131,15 @@ startButton.onclick=function startGame() {
 chatButton.onclick = sendMessage
 
 document.onkeydown = function(event) {
-    console.log(" pressed")
     if (vary===1) {if (event.key == "Enter") {
         console.log("enter pressed")
         sendMessage()
-    }}
-}
+    }} else {
+        if (vary===2) {if (event.key == "Enter") {
+            console.log("enter pressedFR")
+            sendMessageFR()}
+        }}
+        
+} 
+
         

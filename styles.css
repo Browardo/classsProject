@@ -128,17 +128,27 @@ input {
     white-space: pre-line;
 }
 
-
-.intro-field {
-    border-color: blue;
-    max-width:160px;
-    position: fixed;
+.chatMessageFR {
+    position: absolute;
+    left: 100px;
+    top: 20px;
 }
+
+.chatMessageFR {
+    background-color: white;
+    color: black;
+    font-size: 30px;
+    white-space: pre-line;
+}
+
 .P1 {
-    position: fixed;
     left: 250px;
     top: 10px;
 }
+.intro-field {
+    border-color: blue;
+    max-width:160px;}
+
 .intro-field2 {
     border-color: blue;
     max-width:160px;
