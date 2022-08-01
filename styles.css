@@ -130,7 +130,7 @@ input {
 
 .chatMessageFR {
     position: absolute;
-    left: 100px;
+    left: 600px;
     top: 20px;
 }
 
@@ -167,11 +167,14 @@ input {
 }
 .intro-field7 {
     position: fixed;
-    left: 427px;
+    left: 5px;
     bottom: 2px;
+    max-width:700px;
 }
 .button7 {
     position: fixed;
-    left: 700px;
+    left: 300px;
     bottom: 2px;
+    border-color: blue;
+    
 }
