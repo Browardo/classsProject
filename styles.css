@@ -225,8 +225,8 @@ input {
 }
 .your-message {
     position: fixed;
-    left: 25%;
-    top: 50%;
+    left: 6%;
+    top: 10%;
 }
 .your-message {
     background-color: white; color:red;
