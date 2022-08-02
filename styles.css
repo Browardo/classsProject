@@ -10,6 +10,7 @@ message {
 message {
     font-size: 30px;
     position:fixed;
+    top: 300;
 }
 
 message2 {
@@ -18,8 +19,8 @@ message2 {
 
 message2 {
     font-size: 30px;
-
-position:fixed;
+    position:fixed;
+    top: 350;
 }
 
 message3 {
@@ -29,6 +30,7 @@ message3 {
 message3 {
     font-size: 30px;
     position:fixed;
+    top: 400;
 }
 
 message4 {
@@ -38,6 +40,7 @@ message4 {
 message4 {
     font-size: 30px;
     position:fixed;
+    top: 450;
 }
 
 message5 {
@@ -47,6 +50,7 @@ message5 {
 message5 {
     font-size: 30px;
     position:fixed;
+    top: 500;
 }
 
 button {
@@ -54,9 +58,11 @@ button {
     border-color: black;
     text-align: center;
     font-size: 25px;
+    position: fixed;
 }
 input {
     font-size: 25px;
+    position: fixed;
 }
 .Start {
     background-color: red;
@@ -101,8 +107,8 @@ input {
 }
 .chat {
     position: fixed;
-    left: 400px;
-    top: 675;
+    left: 27%;
+    bottom: 2%;
 }
 .chat {
     background-color: blue; 
@@ -110,8 +116,8 @@ input {
 } 
 .intro-field6 {
     position: fixed;
-    left: 128px;
-    top: 675px;
+    left: 2%;
+    bottom: 2%;
     border-color: black;
     
 }
@@ -141,29 +147,68 @@ input {
     white-space: pre-line;
 }
 
-.P1 {
-    left: 250px;
-    top: 10px;
-}
+
+
 .intro-field {
     border-color: blue;
-    max-width:160px;}
-
+    max-width:160px;
+    position: fixed;
+}
+    
+.P1 {
+    left: 190px;
+    position: fixed;
+}
 .intro-field2 {
     border-color: blue;
     max-width:160px;
+    position: fixed;
+    left: 290px;
+    
 }
+.P2 {
+    position: fixed;
+    left: 450px;
+}
+
+
 .intro-field3 {
     border-color: blue;
     max-width:160px;
+    position: fixed;
+    top: 50;
+    left: 29;
+    
 }
+.P3 {
+    position: fixed;
+    top: 50;
+    left: 190;
+}
+
 .intro-field4 {
     border-color: blue;
     max-width:160px;
+    position: fixed;
+    top: 50;
+    left: 290;
+}
+.P4 {
+    position: fixed;
+    top: 50;
+    left: 450;
 }
 .intro-field5 {
     border-color: blue;
     max-width:160px;
+    position: fixed;
+    top: 100;
+    left: 29;
+}
+.P5 {
+    position: fixed;
+    top: 100;
+    left: 190
 }
 .intro-field7 {
     position: fixed;
@@ -173,8 +218,17 @@ input {
 }
 .button7 {
     position: fixed;
-    left: 300px;
+    left: 280px;
     bottom: 2px;
     border-color: blue;
     
+}
+.your-message {
+    position: fixed;
+    left: 25%;
+    top: 50%;
+}
+.your-message {
+    background-color: white; color:red;
+    font-size: 40px;
 }
