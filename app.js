@@ -4,6 +4,8 @@ holler.onLoad(()=>{
         function setVary3 () {
             vary=3
         }
+        let chatMessage=""
+
 
         function clearDaMessage() {
             yourMessage=""
@@ -34,7 +36,7 @@ holler.onLoad(()=>{
 
         let chatButton= document.querySelector(".chat")
         let introField6=document.querySelector(".intro-field6")
-        let chatMessage=""
+        
 
         
         function sendMessageBrody () {
@@ -58,9 +60,9 @@ holler.onLoad(()=>{
             //     setPosition(otherPlayer, newPositionOtherPlayer)
             // }
         }
-        }
+        
 
-        ,function updateMessages (){
+        function updateMessages (){
             holler.appInstance.notifyClients(chatMessage)
 
         holler.onClientEvent(event=>{
@@ -77,7 +79,7 @@ holler.onLoad(()=>{
         
             
         
-        ,function sendMessageFR () {
+        function sendMessageFR () {
             if (vary === 3) { 
 
                 if (introField7.value =="") {
@@ -106,31 +108,31 @@ holler.onLoad(()=>{
         }}
 
         // 1 & 2
-        ,let ,button = document.querySelector(".P1")
-        ,let ,button2 = document.querySelector(".P2")
-        ,let ,introField = document.querySelector(".intro-field")
-        ,let ,introField2 = document.querySelector(".intro-field2")
-        ,let ,message = ""
-        ,let ,message2 = ""
+        button = document.querySelector(".P1")
+        button2 = document.querySelector(".P2")
+        introField = document.querySelector(".intro-field")
+        introField2 = document.querySelector(".intro-field2")
+        message = ""
+        message2 = ""
         // 3 & 4
-        ,let ,button3 = document.querySelector(".P3")
-        ,let ,button4 = document.querySelector(".P4")
-        ,let ,introField3 = document.querySelector(".intro-field3")
-        ,let ,introField4 = document.querySelector(".intro-field4")
-        ,let ,message3 = ""
-        ,let, message4 = ""
+        button3 = document.querySelector(".P3")
+        button4 = document.querySelector(".P4")
+       introField3 = document.querySelector(".intro-field3")
+        introField4 = document.querySelector(".intro-field4")
+        message3 = ""
+         message4 = ""
         // 5
-        ,let ,button5 = document.querySelector(".P5")
-        ,let ,introField5 = document.querySelector(".intro-field5")
-        ,let ,message5 = ""
+        button5 = document.querySelector(".P5")
+        introField5 = document.querySelector(".intro-field5")
+        message5 = ""
 
-        ,let ,buttons = [button, button2, button3, button4, button5, chatButton]
-        ,let ,introFields = [introField, introField2, introField3, introField4, introField5, introField6]
+        buttons = [button, button2, button3, button4, button5, chatButton]
+        introFields = [introField, introField2, introField3, introField4, introField5, introField6]
         // 1
         
         
         
-        ,button.onclick = function(){
+        button.onclick = function(){
             if (introField.value === "") {
                 console.log ("empty")
             }else{
@@ -160,7 +162,7 @@ holler.onLoad(()=>{
         }
             }
         // 2
-        ,button2.onclick = function (){
+        button2.onclick = function (){
             if (introField2.value === "") {
                 console.log ("empty")
             }else{
@@ -191,7 +193,7 @@ holler.onLoad(()=>{
     }
     }
         //3
-        ,button3.onclick = function (){
+        button3.onclick = function (){
             if (introField3.value === ""){
                 console.log ("empty")
             }else{
@@ -222,7 +224,7 @@ holler.onLoad(()=>{
     }
         }
         //4
-        ,button4.onclick = function (){
+        button4.onclick = function (){
             if (introField4.value === ""){
                 console.log ("empty")
             }else{
@@ -255,7 +257,7 @@ holler.onLoad(()=>{
     }
         }
         //5
-        ,button5.onclick = function (){
+        button5.onclick = function (){
             if (introField5.value === ""){
                 console.log ("empty")
             }else{
@@ -288,8 +290,8 @@ holler.onLoad(()=>{
         })
     }
         }
-        ,let ,startButton=document.querySelector(".Start")
-        ,startButton.onclick=function startGame() {
+        startButton=document.querySelector(".Start")
+        startButton.onclick=function startGame() {
 
             //pick impostor
             
@@ -351,10 +353,10 @@ holler.onLoad(()=>{
             setTimeout (setVary3, 2000)
         } 
             
-        ,chatButton.onclick = sendMessageBrody
-        ,button7.onclick = sendMessageFR  
+        chatButton.onclick = sendMessageBrody
+        button7.onclick = sendMessageFR  
 
-        ,document.onkeydown = function(event) {
+        document.onkeydown = function(event) {
             if (vary===1) {if (event.key == "Enter") {
                 console.log("enter pressed")
                 sendMessageBrody()
@@ -366,9 +368,9 @@ holler.onLoad(()=>{
         } 
 
 
-        ,holler.appInstance.notifyClients()
+        holler.appInstance.notifyClients()
 
-        ,holler.onClientEvent(event=>{
+        holler.onClientEvent(event=>{
             console.log("Client event received: " + event)
             
             
@@ -380,7 +382,7 @@ holler.onLoad(()=>{
         })
 
 
-    
+}
     )
 }
 )
