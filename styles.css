@@ -72,8 +72,8 @@ input {
 }
 .Start {
     position: fixed;
-    left: 1050px;
-    top: 50px
+    left: 25px;
+    top: 200px
 }
 .Title {
     position: absolute;
@@ -231,4 +231,5 @@ input {
 .your-message {
     background-color: white; color:red;
     font-size: 40px;
+    white-space: pre-line;
 }
