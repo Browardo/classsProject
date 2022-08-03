@@ -5,8 +5,27 @@ holler.onLoad(()=>{
             vary=3
         }
         let chatMessage=""
+        let chatMessageFR=""
+let message = ""
+let message2=""
+let message3=""
+let message4=""
+let message5=""
 
+//function updateMessages (){
+    //holler.appInstance.notifyClients(chatMessage)
 
+//holler.onClientEvent(event=>{
+    //console.log("Client event received: " + event)
+    
+    //chatMessage=event
+    //updateMessages()
+    // if(event.indexOf(playerSlot) == -1){
+    //     let newPositionOtherPlayer = parseInt(event)
+    //     setPosition(otherPlayer, newPositionOtherPlayer)
+    // }
+//})
+//}
         function clearDaMessage() {
             yourMessage=""
         document.querySelector(".your-message").textContent=yourMessage
@@ -14,7 +33,7 @@ holler.onLoad(()=>{
 
         let yourMessage = "You are not the Impostor.  Congrats."
         let yourAvatar = 0
-        let chatMessageFR=""
+        
         let vary=1
         let button7=document.querySelector(".button7")
         button7.style["display"]="none"
@@ -42,40 +61,26 @@ holler.onLoad(()=>{
         function sendMessageBrody () {
             chatMessage= chatMessage +"P1:  " +"\n" + introField6.value  +  "\n\n"
             console.log(chatMessage)
-            document.querySelector(".chatMessage").textContent=chatMessage
+            
             scroll(0,999999999999999999999999)
             introField6.value = ""
-            
-            updateMessages()
+            //updateMessages()
 
-            //holler.appInstance.notifyClients(chatMessage)
-
-        //holler.onClientEvent(event=>{
-            //console.log("Client event received: " + event)
-            
-            
-            
-            // if(event.indexOf(playerSlot) == -1){
-            //     let newPositionOtherPlayer = parseInt(event)
-            //     setPosition(otherPlayer, newPositionOtherPlayer)
-            // }
-        }
-        
-
-        function updateMessages (){
             holler.appInstance.notifyClients(chatMessage)
 
         holler.onClientEvent(event=>{
             console.log("Client event received: " + event)
-            
             chatMessage=event
+            document.querySelector(".chatMessage").textContent=event
             
             // if(event.indexOf(playerSlot) == -1){
             //     let newPositionOtherPlayer = parseInt(event)
             //     setPosition(otherPlayer, newPositionOtherPlayer)
             // }
-        })
-        }
+        })}
+        
+
+        
         
             
         
@@ -381,8 +386,8 @@ holler.onLoad(()=>{
             // }
         })
 
+    }
 
-}
     )
 }
 )
