@@ -5,12 +5,13 @@ holler.onLoad(()=>{
             vary=3
         }
         let playerVary=1
+        console.log (playerVary)
         let gameStartVary=0
         let chatVary=0
-        let chatMessage=""
+        let chatMessage  =""
         let chatMessageFR=""
-        let yourName=""
-let message =""
+        let yourName     =""
+        let message      =""
 // let message2=""
 // let message3=""
 // let message4=""
@@ -56,7 +57,7 @@ function clearDaMessage() {
 
         let yourMessage = "You are not the Impostor.  Congrats."
         
-        let yourAvatar=""
+        let yourAvatar=   ""
         let vary=1
         let button7=document.querySelector(".button7")
         button7.style["display"]="none"
@@ -152,25 +153,34 @@ function clearDaMessage() {
             if (introField.value === "") {
                 console.log ("empty")
             }else{
+
                 yourName=introField.value
                 
-                yourAvatar=1
+                yourAvatar=playerVary
+                playerVary=playerVary+1
+                console.log ("hi james" + playerVary)
                 
+       //holler.appInstance.notifyClients()
+
+            // holler.onClientEvent(event=>{
+            //     console.log("Client event received: " + event)
+
                 gameStartVary=gameStartVary+1
             
-            introFields.forEach(function (introField){
+        
+        
                 introField.style["display"]="none"
-            })  
+            
         if (gameStartVary===5){
-                chatButton.style["display"]="block"
+                chatButton.style ["display"]="block"
                 introField6.style["display"]="block"
                 startButton.style["display"]="block"
         }
             //for everyone else: button.style["display"]="none"
-            buttons.forEach(function (button){
+            
                 
                 button.style["display"]="none"
-                    })
+                    
                     chatMessage= chatMessage+introField.value +" is here!"
                     console.log (chatMessage)
                     document.querySelector(".chatMessage").textContent=chatMessage
@@ -183,14 +193,24 @@ function clearDaMessage() {
     }
     )
     console.log (yourAvatar)
-            message = "Player 1: " + introField.value
+            message = "Player " +yourAvatar+":" + introField.value
             console.log(message)
             document.querySelector(".message").textContent = message
 
-            holler.appInstance.notifyClients(message)
+            holler.appInstance.notifyClients(JSON.parse(playerVary))
 
             holler.onClientEvent(event=>{
-                console.log("Client event received: " + event)
+                console.log("Client event was received: " + event)
+                // if(event.indexOf(playerSlot) == -1){
+                //     let newPositionOtherPlayer = parseInt(event)
+                //     setPosition(otherPlayer, newPositionOtherPlayer)
+                // }
+            })
+
+            holler.appInstance.notifyClients(JSON.parse(message))
+
+            holler.onClientEvent(event=>{
+                console.log("Client event was received: " + event)
                 // if(event.indexOf(playerSlot) == -1){
                 //     let newPositionOtherPlayer = parseInt(event)
                 //     setPosition(otherPlayer, newPositionOtherPlayer)
@@ -480,7 +500,6 @@ function clearDaMessage() {
         })
 
     }
-
     )
 //}
 //)
