@@ -4,16 +4,18 @@ holler.onLoad(()=>{
         function setVary3 () {
             vary=3
         }
+        let playerVary=1
         let gameStartVary=0
         let chatVary=0
         let chatMessage=""
         let chatMessageFR=""
-let message = ""
-let message2=""
-let message3=""
-let message4=""
-let message5=""
-startButton=document.querySelector(".Start")
+        let yourName=""
+let message =""
+// let message2=""
+// let message3=""
+// let message4=""
+// let message5=""
+let startButton=document.querySelector(".Start")
 startButton.style["display"]="none"
 
 //function updateMessages (){
@@ -30,22 +32,22 @@ startButton.style["display"]="none"
     // }
 //})
 //}
-function constantUpdate (){
-    if (chatVary>0){
-        scroll (0, 99999999999999999990)
-        holler.onClientEvent(event=>{
-            console.log("Client event received: " + event)
-            chatMessage=event
-            document.querySelector(".chatMessage").textContent=event
+// function constantUpdate (){
+//     if (chatVary>0){
+//         scroll (0, 99999999999999999990)
+//         holler.onClientEvent(event=>{
+//             console.log("Client event received: " + event)
+//             chatMessage=event
+//             document.querySelector(".chatMessage").textContent=event
             
-            // if(event.indexOf(playerSlot) == -1){
-            //     let newPositionOtherPlayer = parseInt(event)
-            //     setPosition(otherPlayer, newPositionOtherPlayer)
-            // }
-        })
-    }
-    constantUpdate()
-}       
+//             // if(event.indexOf(playerSlot) == -1){
+//             //     let newPositionOtherPlayer = parseInt(event)
+//             //     setPosition(otherPlayer, newPositionOtherPlayer)
+//             // }
+//         })
+//     }
+//     constantUpdate()
+// }       
 
 function clearDaMessage() {
             yourMessage=""
@@ -53,8 +55,8 @@ function clearDaMessage() {
         }
 
         let yourMessage = "You are not the Impostor.  Congrats."
-        let yourAvatar = 0
         
+        let yourAvatar=""
         let vary=1
         let button7=document.querySelector(".button7")
         button7.style["display"]="none"
@@ -83,9 +85,9 @@ function clearDaMessage() {
         function sendMessageBrody () {
             
             chatVary=chatVary+1
-            chatMessage= chatMessage +"P" + yourAvatar+":\n" + introField6.value  +  "\n\n"
+            chatMessage= chatMessage + "\n"+yourName + "\n"+ introField6.value  +  "\n\n"
             console.log(chatMessage)
-            
+            //
             
             
             introField6.value = ""
@@ -140,51 +142,47 @@ function clearDaMessage() {
         }
         }}
 
-        // 1 & 2
+       //button 1 isolated \/
+       
         button = document.querySelector(".P1")
-        button2 = document.querySelector(".P2")
         introField = document.querySelector(".intro-field")
-        introField2 = document.querySelector(".intro-field2")
         message = ""
-        message2 = ""
-        // 3 & 4
-        button3 = document.querySelector(".P3")
-        button4 = document.querySelector(".P4")
-       introField3 = document.querySelector(".intro-field3")
-        introField4 = document.querySelector(".intro-field4")
-        message3 = ""
-         message4 = ""
-        // 5
-        button5 = document.querySelector(".P5")
-        introField5 = document.querySelector(".intro-field5")
-        message5 = ""
 
-        buttons = [button, button2, button3, button4, button5]
-        introFields = [introField, introField2, introField3, introField4, introField5]
-        // 1
-        
-        
-        
         button.onclick = function(){
             if (introField.value === "") {
                 console.log ("empty")
             }else{
+                yourName=introField.value
+                
+                yourAvatar=1
+                
                 gameStartVary=gameStartVary+1
-            yourAvatar=1
+            
             introFields.forEach(function (introField){
                 introField.style["display"]="none"
             })  
-            if (gameStartVary=5) {
+        if (gameStartVary===5){
                 chatButton.style["display"]="block"
                 introField6.style["display"]="block"
                 startButton.style["display"]="block"
-            }
+        }
             //for everyone else: button.style["display"]="none"
             buttons.forEach(function (button){
                 
                 button.style["display"]="none"
                     })
-                    console.log (yourAvatar)
+                    chatMessage= chatMessage+introField.value +" is here!"
+                    console.log (chatMessage)
+                    document.querySelector(".chatMessage").textContent=chatMessage
+                    
+                    holler.appInstance.notifyClients(chatMessage)
+
+        holler.onClientEvent(event=>{
+            console.log("Client event received: " + event)
+                    //chatButton
+    }
+    )
+    console.log (yourAvatar)
             message = "Player 1: " + introField.value
             console.log(message)
             document.querySelector(".message").textContent = message
@@ -200,149 +198,193 @@ function clearDaMessage() {
             })
         }
             }
-        // 2
-        button2.onclick = function (){
-            if (introField2.value === "") {
-                console.log ("empty")
-            }else{
-                gameStartVary=gameStartVary+1
-                yourAvatar=2
-                introFields.forEach(function (introField){
-                    introField.style["display"]="none"
-                })  
-                if (gameStartVary=5) {
-                    chatButton.style["display"]="block"
-                    introField6.style["display"]="block"
-                }
-                buttons.forEach(function (button){
+
+
+
+//button 1 isolated /\
+
+
+
+
+
+        // button 2
+        
+//         button2 = document.querySelector(".P2")
+        
+//         introField2 = document.querySelector(".intro-field2")
+        
+//         message2 = ""
+//         // 3 & 4
+//         button3 = document.querySelector(".P3")
+//         button4 = document.querySelector(".P4")
+//         introField3 = document.querySelector(".intro-field3")
+//         introField4 = document.querySelector(".intro-field4")
+//         message3 = ""
+//         message4 = ""
+//         // 5
+//         button5 = document.querySelector(".P5")
+//         introField5 = document.querySelector(".intro-field5")
+//         message5 = ""
+
+//         buttons = [button, button2, button3, button4, button5]
+//         introFields = [introField, introField2, introField3, introField4, introField5]
+//         // 1
+        
+        
+        
+        
+//         // 2
+// button2.onclick = function (){
+//             if (introField2.value === "") {
+//                 console.log ("empty")
+//             }else{
+//                 sendMessageBrody()
+//                 gameStartVary=gameStartVary+1
+//                 yourAvatar=2
+//                 introFields.forEach(function (introField){
+//                     introField.style["display"]="none"
+//                 })  
+//                 if (gameStartVary===5) {
+//                     chatButton.style["display"]="block"
+//                     introField6.style["display"]="block"
+//                 }
+//                 buttons.forEach(function (button){
                 
-                    button.style["display"]="none"
-                        })
-                        console.log (yourAvatar)
-            message2 = "Player 2: " + introField2.value
-            console.log(message2)
-            document.querySelector(".message2").textContent = message2
-            
-            holler.appInstance.notifyClients(message2)
+//                     button.style["display"]="none"
+//                         })
+//                         chatMessage= chatMessage +introField2.value +" is here!"
+//                         console.log (chatMessage)
+//                         document.querySelector(".chatMessage").textContent=chatMessage
+                        
+//                         holler.appInstance.notifyClients(chatMessage)
+    
+//             holler.onClientEvent(event=>{
+//                 console.log("Client event received: " + event)
+                        
+//         }
+//         )
 
-            holler.onClientEvent(event=>{
-                console.log("Client event received: " + event)
-                // if(event.indexOf(playerSlot) == -1){
-                //     let newPositionOtherPlayer = parseInt(event)
-                //     setPosition(otherPlayer, newPositionOtherPlayer)
-                // }
-        
-        })
-    }
-    }
-        //3
-        button3.onclick = function (){
-            if (introField3.value === ""){
-                console.log ("empty")
-            }else{
-                gameStartVary=gameStartVary+1
-                yourAvatar=3
-                introFields.forEach(function (introField){
-                    introField.style["display"]="none"
-                })  
-                if (gameStartVary=5) {
-                    chatButton.style["display"]="block"
-                    introField6.style["display"]="block"
-                }
-                buttons.forEach(function (button){
+//                         console.log (yourAvatar)
+//             message2 = "Player 2: " + introField2.value
+//             console.log(message2)
+//             document.querySelector(".message2").textContent = message2
+            
+//             holler.appInstance.notifyClients(message2)
+
+//             holler.onClientEvent(event=>{
+//                 console.log("Client event received: " + event)
                 
-                    button.style["display"]="none"
-                        })
-                        console.log (yourAvatar)
-            message3 = "Player 3: " + introField3.value
-            console.log(message3)
-            document.querySelector(".message3").textContent = message3
+//         })
+//     }
+//     }
+//         //3
+//         button3.onclick = function (){
+//             if (introField3.value === ""){
+//                 console.log ("empty")
+//             }else{
+//                 gameStartVary=gameStartVary+1
+//                 yourAvatar=3
+//                 introFields.forEach(function (introField){
+//                     introField.style["display"]="none"
+//                 })  
+//                 if (gameStartVary===5) {
+//                     chatButton.style["display"]="block"
+//                     introField6.style["display"]="block"
+//                 }
+//                 buttons.forEach(function (button){
+                
+//                     button.style["display"]="none"
+//                         })
+//                         console.log (yourAvatar)
+//             message3 = "Player 3: " + introField3.value
+//             console.log(message3)
+//             document.querySelector(".message3").textContent = message3
             
-            holler.appInstance.notifyClients(message3)
+//             holler.appInstance.notifyClients(message3)
 
-            holler.onClientEvent(event=>{
-                console.log("Client event received: " + event)
-                // if(event.indexOf(playerSlot) == -1){
-                //     let newPositionOtherPlayer = parseInt(event)
-                //     setPosition(otherPlayer, newPositionOtherPlayer)
-                // }
+//             holler.onClientEvent(event=>{
+//                 console.log("Client event received: " + event)
+//                 // if(event.indexOf(playerSlot) == -1){
+//                 //     let newPositionOtherPlayer = parseInt(event)
+//                 //     setPosition(otherPlayer, newPositionOtherPlayer)
+//                 // }
         
-        })
-    }
-        }
-        //4
-        button4.onclick = function (){
-            if (introField4.value === ""){
-                console.log ("empty")
-            }else{
-                gameStartVary=gameStartVary+1
-                yourAvatar=4
+//         })
+//     }
+//         }
+//         //4
+//         button4.onclick = function (){
+//             if (introField4.value === ""){
+//                 console.log ("empty")
+//             }else{
+//                 gameStartVary=gameStartVary+1
+//                 yourAvatar=4
 
-            introFields.forEach(function (introField){
-                introField.style["display"]="none"
-            })  
-            if (gameStartVary=5) {
-            chatButton.style["display"]="block"
-            introField6.style["display"]="block"
-        }
-            buttons.forEach(function (button){
+//             introFields.forEach(function (introField){
+//                 introField.style["display"]="none"
+//             })  
+//             if (gameStartVary===5) {
+//             chatButton.style["display"]="block"
+//             introField6.style["display"]="block"
+//         }
+//             buttons.forEach(function (button){
             
-                button.style["display"]="none"
-                    })
-                    console.log (yourAvatar)
-            message4 = "Player 4: " + introField4.value
-            console.log(message4)
-            document.querySelector(".message4").textContent = message4
+//                 button.style["display"]="none"
+//                     })
+//                     console.log (yourAvatar)
+//             message4 = "Player 4: " + introField4.value
+//             console.log(message4)
+//             document.querySelector(".message4").textContent = message4
             
-            holler.appInstance.notifyClients(message4)
+//             holler.appInstance.notifyClients(message4)
 
-            holler.onClientEvent(event=>{
-                console.log("Client event received: " + event)
-                // if(event.indexOf(playerSlot) == -1){
-                //     let newPositionOtherPlayer = parseInt(event)
-                //     setPosition(otherPlayer, newPositionOtherPlayer)
-                // }
+//             holler.onClientEvent(event=>{
+//                 console.log("Client event received: " + event)
+//                 // if(event.indexOf(playerSlot) == -1){
+//                 //     let newPositionOtherPlayer = parseInt(event)
+//                 //     setPosition(otherPlayer, newPositionOtherPlayer)
+//                 // }
         
-        })
-    }
-        }
-        //5
-        button5.onclick = function (){
-            if (introField5.value === ""){
-                console.log ("empty")
-            }else{
-                gameStartVary=gameStartVary+1
-            yourAvatar=5
+//         })
+//     }
+//         }
+//         //5
+//         button5.onclick = function (){
+//             if (introField5.value === ""){
+//                 console.log ("empty")
+//             }else{
+//                 gameStartVary=gameStartVary+1
+//             yourAvatar=5
           
-            introFields.forEach(function (introField){
-                introField.style["display"]="none"
-            })  
-            if (gameStartVary=5){
-                chatButton.style["display"]="block"
-            introField6.style["display"]="block"
-        }
-            buttons.forEach(function (button){
+//             introFields.forEach(function (introField){
+//                 introField.style["display"]="none"
+//             })  
+//             if (gameStartVary===5){
+//                 chatButton.style["display"]="block"
+//             introField6.style["display"]="block"
+//         }
+//             buttons.forEach(function (button){
             
-                button.style["display"]="none"
-                    })
+//                 button.style["display"]="none"
+//                     })
             
-            console.log (yourAvatar)
-            message5 = "Player 5: " + introField5.value
-            console.log(message5)
-            document.querySelector(".message5").textContent = message5
+//             console.log (yourAvatar)
+//             message5 = "Player 5: " + introField5.value
+//             console.log(message5)
+//             document.querySelector(".message5").textContent = message5
         
-            holler.appInstance.notifyClients(message5)
+//             holler.appInstance.notifyClients(message5)
 
-            holler.onClientEvent(event=>{
-                console.log("Client event received: " + event)
-                // if(event.indexOf(playerSlot) == -1){
-                //     let newPositionOtherPlayer = parseInt(event)
-                //     setPosition(otherPlayer, newPositionOtherPlayer)
-                // }
+//             holler.onClientEvent(event=>{
+//                 console.log("Client event received: " + event)
+//                 // if(event.indexOf(playerSlot) == -1){
+//                 //     let newPositionOtherPlayer = parseInt(event)
+//                 //     setPosition(otherPlayer, newPositionOtherPlayer)
+//                 // }
         
-        })
-    }
-        }
+//         })
+//     }
+//         }
         
         
         startButton.onclick=function startGame() {
@@ -409,7 +451,7 @@ function clearDaMessage() {
             setTimeout (setVary3, 2000)
         } 
             
-        chatButton.onclick = sendMessageBrody
+        chatButton.onclick = sendMessageBrody()
         button7.onclick = sendMessageFR  
 
         document.onkeydown = function(event) {
@@ -424,10 +466,10 @@ function clearDaMessage() {
         } 
 
 
-        holler.appInstance.notifyClients()
+        //holler.appInstance.notifyClients()
 
-        holler.onClientEvent(event=>{
-            console.log("Client event received: " + event)
+        // holler.onClientEvent(event=>{
+        //     console.log("Client event received: " + event)
             
             
             
@@ -440,5 +482,5 @@ function clearDaMessage() {
     }
 
     )
-}
-)
+//}
+//)
