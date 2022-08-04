@@ -4,6 +4,8 @@ holler.onLoad(()=>{
         function setVary3 () {
             vary=3
         }
+        let gameStartVary=0
+        let chatVary=0
         let chatMessage=""
         let chatMessageFR=""
 let message = ""
@@ -11,6 +13,8 @@ let message2=""
 let message3=""
 let message4=""
 let message5=""
+startButton=document.querySelector(".Start")
+startButton.style["display"]="none"
 
 //function updateMessages (){
     //holler.appInstance.notifyClients(chatMessage)
@@ -26,7 +30,24 @@ let message5=""
     // }
 //})
 //}
-        function clearDaMessage() {
+function constantUpdate (){
+    if (chatVary>0){
+        scroll (0, 99999999999999999990)
+        holler.onClientEvent(event=>{
+            console.log("Client event received: " + event)
+            chatMessage=event
+            document.querySelector(".chatMessage").textContent=event
+            
+            // if(event.indexOf(playerSlot) == -1){
+            //     let newPositionOtherPlayer = parseInt(event)
+            //     setPosition(otherPlayer, newPositionOtherPlayer)
+            // }
+        })
+    }
+    constantUpdate()
+}       
+
+function clearDaMessage() {
             yourMessage=""
         document.querySelector(".your-message").textContent=yourMessage
         }
@@ -54,15 +75,19 @@ let message5=""
         let Gtitle= [gameTitle, gameTitle1, gameTitle2]
 
         let chatButton= document.querySelector(".chat")
+        chatButton.style["display"]="none"
         let introField6=document.querySelector(".intro-field6")
-        
+        introField6.style["display"]="none"
 
         
         function sendMessageBrody () {
-            chatMessage= chatMessage +"P1:  " +"\n" + introField6.value  +  "\n\n"
+            
+            chatVary=chatVary+1
+            chatMessage= chatMessage +"P" + yourAvatar+":\n" + introField6.value  +  "\n\n"
             console.log(chatMessage)
             
-            scroll(0,999999999999999999999999)
+            
+            
             introField6.value = ""
             //updateMessages()
 
@@ -77,7 +102,10 @@ let message5=""
             //     let newPositionOtherPlayer = parseInt(event)
             //     setPosition(otherPlayer, newPositionOtherPlayer)
             // }
-        })}
+        })
+    
+        scroll(0,9999999999999999999999990)
+    }
         
 
         
@@ -91,7 +119,7 @@ let message5=""
                     console.log ("empty")
                 }else{
 
-            chatMessageFR= chatMessageFR + "P1:  " + "\n" + introField7.value + "\n\n"
+            chatMessageFR= chatMessageFR + "P" + yourAvatar +":\n" + introField7.value + "\n"
             console.log(chatMessageFR)
             document.querySelector(".chatMessageFR").textContent=chatMessageFR
             scroll(0,999999999999999999999999)
@@ -131,8 +159,8 @@ let message5=""
         introField5 = document.querySelector(".intro-field5")
         message5 = ""
 
-        buttons = [button, button2, button3, button4, button5, chatButton]
-        introFields = [introField, introField2, introField3, introField4, introField5, introField6]
+        buttons = [button, button2, button3, button4, button5]
+        introFields = [introField, introField2, introField3, introField4, introField5]
         // 1
         
         
@@ -141,10 +169,16 @@ let message5=""
             if (introField.value === "") {
                 console.log ("empty")
             }else{
+                gameStartVary=gameStartVary+1
             yourAvatar=1
             introFields.forEach(function (introField){
                 introField.style["display"]="none"
             })  
+            if (gameStartVary=5) {
+                chatButton.style["display"]="block"
+                introField6.style["display"]="block"
+                startButton.style["display"]="block"
+            }
             //for everyone else: button.style["display"]="none"
             buttons.forEach(function (button){
                 
@@ -171,11 +205,15 @@ let message5=""
             if (introField2.value === "") {
                 console.log ("empty")
             }else{
+                gameStartVary=gameStartVary+1
                 yourAvatar=2
                 introFields.forEach(function (introField){
                     introField.style["display"]="none"
                 })  
-
+                if (gameStartVary=5) {
+                    chatButton.style["display"]="block"
+                    introField6.style["display"]="block"
+                }
                 buttons.forEach(function (button){
                 
                     button.style["display"]="none"
@@ -202,11 +240,15 @@ let message5=""
             if (introField3.value === ""){
                 console.log ("empty")
             }else{
+                gameStartVary=gameStartVary+1
                 yourAvatar=3
                 introFields.forEach(function (introField){
                     introField.style["display"]="none"
                 })  
-
+                if (gameStartVary=5) {
+                    chatButton.style["display"]="block"
+                    introField6.style["display"]="block"
+                }
                 buttons.forEach(function (button){
                 
                     button.style["display"]="none"
@@ -233,13 +275,16 @@ let message5=""
             if (introField4.value === ""){
                 console.log ("empty")
             }else{
-
+                gameStartVary=gameStartVary+1
                 yourAvatar=4
 
             introFields.forEach(function (introField){
                 introField.style["display"]="none"
             })  
-
+            if (gameStartVary=5) {
+            chatButton.style["display"]="block"
+            introField6.style["display"]="block"
+        }
             buttons.forEach(function (button){
             
                 button.style["display"]="none"
@@ -266,13 +311,16 @@ let message5=""
             if (introField5.value === ""){
                 console.log ("empty")
             }else{
-
+                gameStartVary=gameStartVary+1
             yourAvatar=5
           
             introFields.forEach(function (introField){
                 introField.style["display"]="none"
             })  
-
+            if (gameStartVary=5){
+                chatButton.style["display"]="block"
+            introField6.style["display"]="block"
+        }
             buttons.forEach(function (button){
             
                 button.style["display"]="none"
@@ -295,7 +343,8 @@ let message5=""
         })
     }
         }
-        startButton=document.querySelector(".Start")
+        
+        
         startButton.onclick=function startGame() {
 
             //pick impostor
@@ -327,10 +376,12 @@ let message5=""
             introFields.forEach(function (introField){
                     introField.style["display"]="none"
                 })
+                introField6.style["display"]="none"
             buttons.forEach(function (button){
                 
                 button.style["display"]="none"
                     })
+                chatButton.style["display"]="none"
                 vary=2
                     gameTitle= " "
                     gameTitle2= " "
