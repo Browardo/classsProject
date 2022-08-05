@@ -1,5 +1,53 @@
-let numPlayersPerGame = 2
+let introField7=document.querySelector(".intro-field7")
+
+let shouldWeStart="no"
+let yourAvatar=   ""
+let randomFreakingArray=[]
+let yourMessage=""
+let startButton=document.querySelector(".Start")
+        startButton.style["display"]="none"
+
+//let numPlayersPerGame = 2
 let playersInWaitingRoom = []
+
+function setVary3(){
+    vary=3
+    console.log ("vary is 3333333333")
+}
+function respondToStartButtonClick(){
+    console.log (shouldWeStart)
+    randomFreakingArray.push(shouldWeStart)
+    if (randomFreakingArray.length>= 1){
+        console.log ("at least we got this far!")
+
+
+        function random_rule(rules) {
+            return rules[Math.floor(Math.random()*rules.length)];
+        } 
+        const rules= ["Every message must contain 4 words or less",
+        "Half of your messasges must be questions",
+        "Every message must contain a prepositional phrase",
+        "No punctuation"];
+        
+        function random_player(playersInWaitingRoom) {
+            return playersInWaitingRoom[Math.floor(Math.random()*playersInWaitingRoom.length)];
+        } 
+
+        
+            
+            
+            console.log ("I'm going to initiate")
+            let infoToSend= {
+                kind:"start-game",
+                imposter:random_player(playersInWaitingRoom),
+                rule:random_rule(rules)
+
+            }
+            holler.appInstance.notifyClients(JSON.stringify(infoToSend))
+        }
+
+    }
+
 function addPlayerToWaitingRoom(newPlayerName){
     playersInWaitingRoom.push(newPlayerName)
     console.log("COMMUNICATION sending something:", playersInWaitingRoom)
@@ -12,19 +60,79 @@ function addPlayerToWaitingRoom(newPlayerName){
 function respondToWaitingRoomChanges(){
     console.log("HEY, the waiting room now has", playersInWaitingRoom)
 
-    document.querySelector(".message").textContent = playersInWaitingRoom[0]
+    document.querySelector(".message") .textContent = playersInWaitingRoom[0]
     document.querySelector(".message2").textContent = playersInWaitingRoom[1]
     document.querySelector(".message3").textContent = playersInWaitingRoom[2]
     document.querySelector(".message4").textContent = playersInWaitingRoom[3]
     document.querySelector(".message5").textContent = playersInWaitingRoom[4]
 
-    if(playersInWaitingRoom.length >= numPlayersPerGame){
+    if(playersInWaitingRoom.length >= 2){
         // TODO: start game
         console.log("TIME TO START THE GAME")
-
         
+        if (yourAvatar===playersInWaitingRoom[0]){
+            startButton.style['display']="block"
+        }
     }
 }
+
+//start game function \/
+function actuallyStartTheGame (gameConfig) {
+
+    console.log ("BBSEFBISUEFBEI" + playersInWaitingRoom)
+    console.log (yourAvatar)
+    
+    if (yourAvatar === gameConfig.imposter) {
+        yourMessage = "You are the Impostor!\n\n Rule:\n\n" + [(gameConfig.rule)]
+    }
+
+
+
+
+    console.log (yourMessage)
+    document.querySelector(".your-message").textContent=yourMessage
+
+    function clearDaMessage() {
+        yourMessage=""
+    document.querySelector(".your-message").textContent=yourMessage
+    }
+
+    setTimeout (clearDaMessage, 5000)
+    //make stuff disapear    
+    console.log ("start button pressed")
+    startButton.style['display']="none"
+    
+        introField.style["display"]="none"
+        
+    
+    
+        
+        
+    vary=2
+    gameTitle = ""
+    gameTitle2= ""
+    gameTitle3= ""
+
+
+    document.querySelector(".Title").textContent=gameTitle
+    document.querySelector(".Title1").textContent=gameTitle2
+    document.querySelector(".Title2").textContent=gameTitle3
+
+    chatMessage=""
+            
+    console.log ("chatMessageCleared")
+    document.querySelector(".chatMessage").textContent=chatMessage
+//make stuff appear
+    introField7.style["display"]="block"
+    let button7= document.querySelector(".button7")
+    button7.style["display"]="block"
+    
+    
+
+    setTimeout (setVary3, 6000)     
+}
+//start game function /\
+
 
 holler.onLoad(()=>{
 
@@ -34,9 +142,13 @@ holler.onLoad(()=>{
         let incomingObject = JSON.parse(stringFromOtherClient)
 
         console.log("COMMUNICATION: Object is", incomingObject)
+        
+        
         if(incomingObject.kind === "waiting-room-update"){
             playersInWaitingRoom = incomingObject.players
             respondToWaitingRoomChanges()
+        }else if(incomingObject.kind === "start-game"){
+            actuallyStartTheGame(incomingObject)
         }
 
         // if(event.indexOf(playerSlot) == -1){
@@ -62,8 +174,7 @@ holler.onLoad(()=>{
         // let message3=""
         // let message4=""
         // let message5=""
-        let startButton=document.querySelector(".Start")
-        startButton.style["display"]="none"
+        
 
         //function updateMessages (){
         //holler.appInstance.notifyClients(chatMessage)
@@ -96,13 +207,10 @@ holler.onLoad(()=>{
         // constantUpdate()
         // }       
 
-        function clearDaMessage() {
-            yourMessage=""
-        document.querySelector(".your-message").textContent=yourMessage
-        }
+        
         let yourMessage = "You are not the Impostor.  Congrats."
         
-        let yourAvatar=   ""
+        
         let vary=0
         let button7=document.querySelector(".button7")
         button7.style["display"]="none"
@@ -209,9 +317,8 @@ holler.onLoad(()=>{
 
                 yourName=introField.value
                 
-                yourAvatar=playerVary
-                playerVary=playerVary+1
-                console.log ("hi james" + playerVary)
+                yourAvatar=introField.value
+                //console.log ("hi james" + playerVary)
                 
                 addPlayerToWaitingRoom(yourName);
                 respondToWaitingRoomChanges()
@@ -464,64 +571,10 @@ holler.onLoad(()=>{
 //         }
         
         
-        startButton.onclick=function startGame() {
-
-            //pick impostor
-            
-            function random_rule(rules) {
-                return rules[Math.floor(Math.random()*rules.length)];
-            } 
-            const rules= ["Every message must contain 4 words or less",
-            "Half of your messasges must be questions",
-            "Every message must contain a prepositional phrase",
-            "No punctuation"];
-            
-            function random_player(players) {
-                return players[Math.floor(Math.random()*players.length)];
-            } 
-            let players = [1,2,3,4,5]
-            
-            console.log (yourAvatar)
-            
-            if (yourAvatar === (random_player(players))) {
-                yourMessage = "You are the Impostor!\n\n Rule:\n\n" + [(random_rule(rules))]
-            }
-            console.log (yourMessage)
-            document.querySelector(".your-message").textContent=yourMessage
-            setTimeout (clearDaMessage, 5000)
-        //make stuff disapear    
-            console.log ("start button pressed")
-            startButton.style['display']="none"
-            introFields.forEach(function (introField){
-                    introField.style["display"]="none"
-                })
-            introField6.style["display"]="none"
-            buttons.forEach(function (button){
-                
-                button.style["display"]="none"
-                    })
-            chatButton.style["display"]="none"
-            vary=2
-            gameTitle= " "
-            gameTitle2= " "
-            gameTitle3= " "
-            document.querySelector(".Title").textContent=gameTitle
-            document.querySelector(".Title1").textContent=gameTitle2
-            document.querySelector(".Title2").textContent=gameTitle3
-
-            chatMessage=""
-                    
-            console.log ("chatMessageCleared")
-            document.querySelector(".chatMessage").textContent=chatMessage
-        //make stuff appear
-            introField7.style["display"]="block"
-            button7.style["display"]="block"
-            button7= document.querySelector(".button7")
-            introField7=document.querySelector(".intro-field7")
-
-            setTimeout (setVary3, 6000)     
-            }
-
+        startButton.onclick=function() {
+            shouldWeStart="yes"
+            respondToStartButtonClick()
+        }
         function waitAmoment()  {
             vary=4
             console.log ("the players converseth")
@@ -544,6 +597,9 @@ holler.onLoad(()=>{
             }
         } 
 
+
+        
+        
 
         //holler.appInstance.notifyClients()
 
