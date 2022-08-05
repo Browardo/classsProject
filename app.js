@@ -1,4 +1,49 @@
+let numPlayersPerGame = 2
+let playersInWaitingRoom = []
+function addPlayerToWaitingRoom(newPlayerName){
+    playersInWaitingRoom.push(newPlayerName)
+    console.log("COMMUNICATION sending something:", playersInWaitingRoom)
+    let objectToSend = {
+        kind:"waiting-room-update",
+        players:playersInWaitingRoom
+    }
+    holler.appInstance.notifyClients(JSON.stringify(objectToSend))
+}
+function respondToWaitingRoomChanges(){
+    console.log("HEY, the waiting room now has", playersInWaitingRoom)
+
+    document.querySelector(".message").textContent = playersInWaitingRoom[0]
+    document.querySelector(".message2").textContent = playersInWaitingRoom[1]
+    document.querySelector(".message3").textContent = playersInWaitingRoom[2]
+    document.querySelector(".message4").textContent = playersInWaitingRoom[3]
+    document.querySelector(".message5").textContent = playersInWaitingRoom[4]
+
+    if(playersInWaitingRoom.length >= numPlayersPerGame){
+        // TODO: start game
+        console.log("TIME TO START THE GAME")
+
+        
+    }
+}
+
 holler.onLoad(()=>{
+
+    holler.onClientEvent(stringFromOtherClient=>{
+        console.log("COMMUNICATION received something:" + stringFromOtherClient)
+
+        let incomingObject = JSON.parse(stringFromOtherClient)
+
+        console.log("COMMUNICATION: Object is", incomingObject)
+        if(incomingObject.kind === "waiting-room-update"){
+            playersInWaitingRoom = incomingObject.players
+            respondToWaitingRoomChanges()
+        }
+
+        // if(event.indexOf(playerSlot) == -1){
+        // let newPositionOtherPlayer = parseInt(event)
+        // setPosition(otherPlayer, newPositionOtherPlayer)
+        // }
+    })
 
     holler.me((user)=>{
         
@@ -55,7 +100,6 @@ holler.onLoad(()=>{
             yourMessage=""
         document.querySelector(".your-message").textContent=yourMessage
         }
-
         let yourMessage = "You are not the Impostor.  Congrats."
         
         let yourAvatar=   ""
@@ -95,18 +139,22 @@ holler.onLoad(()=>{
             introField6.value = ""
             //updateMessages()
 
-            holler.appInstance.notifyClients(chatMessage)
+            holler.appInstance.notifyClients(JSON.stringify({
+                kind:"waiting-room-chat-message",
+                text:chatMessage
+            }))
 
-            holler.onClientEvent(event=>{
-            console.log("Client event received: " + event)
-            chatMessage=event
-            document.querySelector(".chatMessage").textContent=event
+            // STU WAS HERE...
+            // holler.onClientEvent(event=>{
+            //     console.log("Client event received: " + event)
+            //     chatMessage=event
+            //     document.querySelector(".chatMessage").textContent=event
             
-            // if(event.indexOf(playerSlot) == -1){
-            //     let newPositionOtherPlayer = parseInt(event)
-            //     setPosition(otherPlayer, newPositionOtherPlayer)
-            // }
-            })
+            //     // if(event.indexOf(playerSlot) == -1){
+            //     //     let newPositionOtherPlayer = parseInt(event)
+            //     //     setPosition(otherPlayer, newPositionOtherPlayer)
+            //     // }
+            // })
     
             scroll(0,9999999999999999999999990)
         }
@@ -129,15 +177,18 @@ holler.onLoad(()=>{
                     scroll(0,999999999999999999999999)
                     introField7.value = ""
             
-                    holler.appInstance.notifyClients(chatMessageFR)
+                    holler.appInstance.notifyClients(JSON.stringify({
+                        kind:"in-game-chat-message",
+                        text:chatMessageFR
+                    }))
 
-                    holler.onClientEvent(event=>{
-                    console.log("Client event received: " + event)
+                    // holler.onClientEvent(event=>{
+                    // console.log("Client event received: " + event)
                     // if(event.indexOf(playerSlot) == -1){
                     //     let newPositionOtherPlayer = parseInt(event)
                     //     setPosition(otherPlayer, newPositionOtherPlayer)
                     // }
-                    })
+                    //})
             
 
                     waitAmoment()
@@ -161,7 +212,9 @@ holler.onLoad(()=>{
                 yourAvatar=playerVary
                 playerVary=playerVary+1
                 console.log ("hi james" + playerVary)
-
+                
+                addPlayerToWaitingRoom(yourName);
+                respondToWaitingRoomChanges()
                 
 
                 // holler.onClientEvent(event=>{
@@ -215,19 +268,13 @@ holler.onLoad(()=>{
                 // }
                 // })
                 //holler.appInstance.notifyClients(JSON.parse(playerVary))
-                holler.appInstance.notifyClients(message)
-                holler.appInstance.notifyClients(chatMessage)
-                holler.appInstance.notifyClients(playerVary)
-                holler.appInstance.notifyClients(gameStartVary)
+                // holler.appInstance.notifyClients(message)
+                // holler.appInstance.notifyClients(chatMessage)
+                // holler.appInstance.notifyClients(playerVary)
+                // holler.appInstance.notifyClients(gameStartVary)
 
 
-                holler.onClientEvent(event=>{
-                    console.log("Client event wass received: " + event)
-                    // if(event.indexOf(playerSlot) == -1){
-                    // let newPositionOtherPlayer = parseInt(event)
-                    // setPosition(otherPlayer, newPositionOtherPlayer)
-                    // }
-                })
+
 
 
 
@@ -513,10 +560,9 @@ holler.onLoad(()=>{
 
 
 
-        }
-        } 
+                }
+            } 
     }
     )
-
 }
 )
