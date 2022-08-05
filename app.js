@@ -8,10 +8,10 @@ holler.onLoad(()=>{
         console.log (playerVary)
         let gameStartVary=0
         let chatVary=0
-        let chatMessage  =""
+        let chatMessage = ""
         let chatMessageFR=""
-        let yourName     =""
-        let message      =""
+        let yourName  =   ""
+        let message   =   ""
 // let message2=""
 // let message3=""
 // let message4=""
