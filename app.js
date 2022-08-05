@@ -1,6 +1,7 @@
 holler.onLoad(()=>{
 
     holler.me((user)=>{
+        
         function setVary3 () {
             vary=3
         }
@@ -12,45 +13,45 @@ holler.onLoad(()=>{
         let chatMessageFR=""
         let yourName  =   ""
         let message   =   ""
-// let message2=""
-// let message3=""
-// let message4=""
-// let message5=""
-let startButton=document.querySelector(".Start")
-startButton.style["display"]="none"
+        // let message2=""
+        // let message3=""
+        // let message4=""
+        // let message5=""
+        let startButton=document.querySelector(".Start")
+        startButton.style["display"]="none"
 
-//function updateMessages (){
-    //holler.appInstance.notifyClients(chatMessage)
+        //function updateMessages (){
+        //holler.appInstance.notifyClients(chatMessage)
 
-//holler.onClientEvent(event=>{
-    //console.log("Client event received: " + event)
+        //holler.onClientEvent(event=>{
+        //console.log("Client event received: " + event)
     
-    //chatMessage=event
-    //updateMessages()
-    // if(event.indexOf(playerSlot) == -1){
-    //     let newPositionOtherPlayer = parseInt(event)
-    //     setPosition(otherPlayer, newPositionOtherPlayer)
-    // }
-//})
-//}
-// function constantUpdate (){
-//     if (chatVary>0){
-//         scroll (0, 99999999999999999990)
-//         holler.onClientEvent(event=>{
-//             console.log("Client event received: " + event)
-//             chatMessage=event
-//             document.querySelector(".chatMessage").textContent=event
+        //chatMessage=event
+        //updateMessages()
+        // if(event.indexOf(playerSlot) == -1){
+        //     let newPositionOtherPlayer = parseInt(event)
+        //     setPosition(otherPlayer, newPositionOtherPlayer)
+        // }
+        //})
+        //}
+        // function constantUpdate (){
+        //  if (chatVary>0){
+        //  scroll (0, 99999999999999999990)
+        // holler.onClientEvent(event=>{
+        // console.log("Client event received: " + event)
+        //chatMessage=event
+        //document.querySelector(".chatMessage").textContent=event
             
-//             // if(event.indexOf(playerSlot) == -1){
-//             //     let newPositionOtherPlayer = parseInt(event)
-//             //     setPosition(otherPlayer, newPositionOtherPlayer)
-//             // }
-//         })
-//     }
-//     constantUpdate()
-// }       
+        // if(event.indexOf(playerSlot) == -1){
+        // let newPositionOtherPlayer = parseInt(event)
+        //setPosition(otherPlayer, newPositionOtherPlayer)
+        // }
+        //})
+        //}
+        // constantUpdate()
+        // }       
 
-function clearDaMessage() {
+        function clearDaMessage() {
             yourMessage=""
         document.querySelector(".your-message").textContent=yourMessage
         }
@@ -58,7 +59,7 @@ function clearDaMessage() {
         let yourMessage = "You are not the Impostor.  Congrats."
         
         let yourAvatar=   ""
-        let vary=1
+        let vary=0
         let button7=document.querySelector(".button7")
         button7.style["display"]="none"
         let introField7 = document.querySelector(".intro-field7")
@@ -85,7 +86,7 @@ function clearDaMessage() {
         
         function sendMessageBrody () {
             
-            chatVary=chatVary+1
+            
             chatMessage= chatMessage + "\n"+yourName + "\n"+ introField6.value  +  "\n\n"
             console.log(chatMessage)
             //
@@ -96,7 +97,7 @@ function clearDaMessage() {
 
             holler.appInstance.notifyClients(chatMessage)
 
-        holler.onClientEvent(event=>{
+            holler.onClientEvent(event=>{
             console.log("Client event received: " + event)
             chatMessage=event
             document.querySelector(".chatMessage").textContent=event
@@ -105,10 +106,10 @@ function clearDaMessage() {
             //     let newPositionOtherPlayer = parseInt(event)
             //     setPosition(otherPlayer, newPositionOtherPlayer)
             // }
-        })
+            })
     
-        scroll(0,9999999999999999999999990)
-    }
+            scroll(0,9999999999999999999999990)
+        }
         
 
         
@@ -122,28 +123,29 @@ function clearDaMessage() {
                     console.log ("empty")
                 }else{
 
-            chatMessageFR= chatMessageFR + "P" + yourAvatar +":\n" + introField7.value + "\n"
-            console.log(chatMessageFR)
-            document.querySelector(".chatMessageFR").textContent=chatMessageFR
-            scroll(0,999999999999999999999999)
-            introField7.value = ""
+                    chatMessageFR= chatMessageFR + "P" + yourAvatar +":\n" + introField7.value + "\n"
+                    console.log(chatMessageFR)
+                    document.querySelector(".chatMessageFR").textContent=chatMessageFR
+                    scroll(0,999999999999999999999999)
+                    introField7.value = ""
             
-            holler.appInstance.notifyClients(chatMessageFR)
+                    holler.appInstance.notifyClients(chatMessageFR)
 
-            holler.onClientEvent(event=>{
-                console.log("Client event received: " + event)
-                // if(event.indexOf(playerSlot) == -1){
-                //     let newPositionOtherPlayer = parseInt(event)
-                //     setPosition(otherPlayer, newPositionOtherPlayer)
-                // }
-            })
+                    holler.onClientEvent(event=>{
+                    console.log("Client event received: " + event)
+                    // if(event.indexOf(playerSlot) == -1){
+                    //     let newPositionOtherPlayer = parseInt(event)
+                    //     setPosition(otherPlayer, newPositionOtherPlayer)
+                    // }
+                    })
             
 
-            waitAmoment()
+                    waitAmoment()
+                }
         }
-        }}
+    }
 
-       //button 1 isolated \/
+        //button 1 isolated \/
        
         button = document.querySelector(".P1")
         introField = document.querySelector(".intro-field")
@@ -159,69 +161,77 @@ function clearDaMessage() {
                 yourAvatar=playerVary
                 playerVary=playerVary+1
                 console.log ("hi james" + playerVary)
+
                 
-       //holler.appInstance.notifyClients()
 
-            // holler.onClientEvent(event=>{
-            //     console.log("Client event received: " + event)
+                // holler.onClientEvent(event=>{
+                // console.log("Client event has been received: " + event)
+                
+                //holler.appInstance.notifyClients()
 
+                // holler.onClientEvent(event=>{
+                // console.log("Client event received: " + event)
+                // })
                 gameStartVary=gameStartVary+1
             
-        
+                console.log ("WAJAJANSJHSVWGVJAHSJH" + gameStartVary)
         
                 introField.style["display"]="none"
             
-        if (gameStartVary===5){
-                chatButton.style ["display"]="block"
-                introField6.style["display"]="block"
-                startButton.style["display"]="block"
-        }
-            //for everyone else: button.style["display"]="none"
+                if (gameStartVary===5){
+                    chatButton.style ["display"]="block"
+                    introField6.style["display"]="block"
+                    startButton.style["display"]="block"
+                    vary=1
+                 }
+                //for everyone else: button.style["display"]="none"
             
                 
                 button.style["display"]="none"
                     
-                    chatMessage= chatMessage+introField.value +" is here!"
-                    console.log (chatMessage)
-                    document.querySelector(".chatMessage").textContent=chatMessage
+                chatMessage= chatMessage+introField.value +" is here!\n"
+                console.log (chatMessage)
+                document.querySelector(".chatMessage").textContent=chatMessage
                     
-                    holler.appInstance.notifyClients(chatMessage)
+                    
 
-        holler.onClientEvent(event=>{
-            console.log("Client event received: " + event)
+                // holler.onClientEvent(event=>{
+                // console.log("Client event received: " + event)
                     //chatButton
-    }
-    )
-    console.log (yourAvatar)
-            message = "Player " +yourAvatar+":" + introField.value
-            console.log(message)
-            document.querySelector(".message").textContent = message
+                // }
+                // )
+                console.log (yourAvatar)
+                message = "Player " +yourAvatar+":" + introField.value
+                console.log(message)
+                document.querySelector(".message").textContent = message
 
-            holler.appInstance.notifyClients(JSON.parse(playerVary))
+            
 
-            holler.onClientEvent(event=>{
-                console.log("Client event was received: " + event)
+                // holler.onClientEvent(event=>{
+                //     console.log("Client event was received: " + event)
                 // if(event.indexOf(playerSlot) == -1){
                 //     let newPositionOtherPlayer = parseInt(event)
                 //     setPosition(otherPlayer, newPositionOtherPlayer)
                 // }
-            })
-
-            holler.appInstance.notifyClients(JSON.parse(message))
-
-            holler.onClientEvent(event=>{
-                console.log("Client event was received: " + event)
-                // if(event.indexOf(playerSlot) == -1){
-                //     let newPositionOtherPlayer = parseInt(event)
-                //     setPosition(otherPlayer, newPositionOtherPlayer)
-                // }
-            })
-        }
-            }
+                // })
+                //holler.appInstance.notifyClients(JSON.parse(playerVary))
+                holler.appInstance.notifyClients(message)
+                holler.appInstance.notifyClients(chatMessage)
+                holler.appInstance.notifyClients(playerVary)
+                holler.appInstance.notifyClients(gameStartVary)
 
 
+                holler.onClientEvent(event=>{
+                    console.log("Client event wass received: " + event)
+                    // if(event.indexOf(playerSlot) == -1){
+                    // let newPositionOtherPlayer = parseInt(event)
+                    // setPosition(otherPlayer, newPositionOtherPlayer)
+                    // }
+                })
 
-//button 1 isolated /\
+
+
+        //button 1 isolated /\
 
 
 
@@ -429,43 +439,43 @@ function clearDaMessage() {
             if (yourAvatar === (random_player(players))) {
                 yourMessage = "You are the Impostor!\n\n Rule:\n\n" + [(random_rule(rules))]
             }
-                    console.log (yourMessage)
-                    document.querySelector(".your-message").textContent=yourMessage
-                    setTimeout (clearDaMessage, 5000)
+            console.log (yourMessage)
+            document.querySelector(".your-message").textContent=yourMessage
+            setTimeout (clearDaMessage, 5000)
         //make stuff disapear    
             console.log ("start button pressed")
             startButton.style['display']="none"
             introFields.forEach(function (introField){
                     introField.style["display"]="none"
                 })
-                introField6.style["display"]="none"
+            introField6.style["display"]="none"
             buttons.forEach(function (button){
                 
                 button.style["display"]="none"
                     })
-                chatButton.style["display"]="none"
-                vary=2
-                    gameTitle= " "
-                    gameTitle2= " "
-                    gameTitle3= " "
-                    document.querySelector(".Title").textContent=gameTitle
-                    document.querySelector(".Title1").textContent=gameTitle2
-                    document.querySelector(".Title2").textContent=gameTitle3
+            chatButton.style["display"]="none"
+            vary=2
+            gameTitle= " "
+            gameTitle2= " "
+            gameTitle3= " "
+            document.querySelector(".Title").textContent=gameTitle
+            document.querySelector(".Title1").textContent=gameTitle2
+            document.querySelector(".Title2").textContent=gameTitle3
 
-                    chatMessage=""
+            chatMessage=""
                     
-                    console.log ("chatMessageCleared")
-                    document.querySelector(".chatMessage").textContent=chatMessage
-                    //make stuff appear
-                    introField7.style["display"]="block"
-                    button7.style["display"]="block"
-                    button7= document.querySelector(".button7")
-                    introField7=document.querySelector(".intro-field7")
+            console.log ("chatMessageCleared")
+            document.querySelector(".chatMessage").textContent=chatMessage
+        //make stuff appear
+            introField7.style["display"]="block"
+            button7.style["display"]="block"
+            button7= document.querySelector(".button7")
+            introField7=document.querySelector(".intro-field7")
 
-                    setTimeout (setVary3, 6000)     
+            setTimeout (setVary3, 6000)     
             }
 
-        ,function waitAmoment()  {
+        function waitAmoment()  {
             vary=4
             console.log ("the players converseth")
             setTimeout (setVary3, 2000)
@@ -475,14 +485,16 @@ function clearDaMessage() {
         button7.onclick = sendMessageFR  
 
         document.onkeydown = function(event) {
-            if (vary===1) {if (event.key == "Enter") {
-                console.log("enter pressed")
-                sendMessageBrody()
-            }} else {
+            if (vary===1) {
+                if (event.key == "Enter") {
+                    console.log("enter pressed")
+                    sendMessageBrody()
+                }
+            } else {
                 if (event.key == "Enter") {
                     console.log("enter pressedFR")
                     sendMessageFR()}
-                }
+            }
         } 
 
 
@@ -493,13 +505,18 @@ function clearDaMessage() {
             
             
             
-            // if(event.indexOf(playerSlot) == -1){
-            //     let newPositionOtherPlayer = parseInt(event)
-            //     setPosition(otherPlayer, newPositionOtherPlayer)
-            // }
-        })
+        // if(event.indexOf(playerSlot) == -1){
+        //     let newPositionOtherPlayer = parseInt(event)
+        //     setPosition(otherPlayer, newPositionOtherPlayer)
+        // }
 
+
+
+
+        }
+        } 
     }
     )
-//}
-//)
+
+}
+)
